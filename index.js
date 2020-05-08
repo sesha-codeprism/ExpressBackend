@@ -1,9 +1,9 @@
 const express = require('express');
-const bodyParser= require('body-parser')
+const bodyParser = require('body-parser')
 const path = require('path');
 const app = express();
 const MongoClient = require('mongodb').MongoClient
-const user = require("./api/User");
+const user = require("./controllers/User");
 const InitiateMongoServer = require("./config/db");
 
 
@@ -35,21 +35,20 @@ app.use(bodyParser.json());
 //         })
 //         .catch(error => console.error(error))
 //     })
-    
-    
+
+
 //   })
 //   .catch(console.error)
 
 
 
-app.get
-app.listen(PORT, function() {
-    console.log(`Example app listening on port ${PORT}!`);
-  });
+app.listen(PORT, function () {
+  console.log(`Example app listening on port ${PORT}!`);
+});
 
-  app.use("/user", user);
+app.use("/user", user);
 
-  
+
 
 app.use(express.static(path.join(__dirname, 'templates')))
 
